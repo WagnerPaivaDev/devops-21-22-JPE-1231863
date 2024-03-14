@@ -1,0 +1,65 @@
+package.employees;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+public class EmployeeTest {
+
+    @Test
+    void createEmployee_Success() throws InstantiationException {
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 1;
+        Employee employee = new Employee(firstName, lastName, description, jobYears, "
+
+
+ @Test
+    void createEmployee_Success() throws InstantiationException {
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 1;
+        Employee employee = new Employee(firstName, lastName, description, jobYears, "frodo.baggins@shire.com");
+        assertEquals(firstName, employee.getFirstName());
+        assertEquals(lastName, employee.getLastName());
+        assertEquals(description, employee.getDescription());
+        assertEquals(String.valueOf(jobYears), employee.getJobYears());
+
+
+    @Test
+    void createEmployee_NullFirstName(){
+        String firstName = null;
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 0;
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com"));
+    }
+
+    @Test
+    void createEmployee_ZeroJobYears() throws InstantiationException {
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 0;
+        Employee employee = new Employee(firstName, lastName, description, jobYears,"frodo.baggins@shire.com");
+        assertEquals(firstName, employee.getFirstName());
+        assertEquals(lastName, employee.getLastName());
+        assertEquals(description, employee.getDescription());
+        assertEquals(String.valueOf(jobYears), employee.getJobYears());
+    }
+
+    @Test
+    void createEmployee_EmtpyEmail(){
+        String firstName = "Frodo";
+        String lastName = "Baggins";
+        String description = "ring bearer";
+        int jobYears = 0;
+        String email = "";
+        assertThrows(InstantiationException.class, () -> new Employee(firstName, lastName, description, jobYears,email));
+    }
+}
