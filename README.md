@@ -50,18 +50,18 @@ should be staged.
 6. Push the commit to the remote repository:
    ```bash
    git remote add origin <repository-URL>
-   git push -u origin master
+   git push -u origin main
    ```
     - the first step is only necessary if the local repository is not yet linked to the remote one, as it is its function.
     - The second step  uploads local repository content to the remote repository location.
 
 7. Add a tag to the commit:
    ```bash
-   mv CA1  CA1.V1
-	git commit -m #2	
-   git push
+    git tag v1.1.0 <nr of tag>
+	git push origin main --tags
+    
    ```
-    - the first step creates a new tag, with the name "V1"
+    - the first step creates a new tag, with the name "V1.1.0"
     - the second step uploads the tag to the remote repository
 
 ### Implementing Changes
