@@ -8,7 +8,7 @@ plugins {
 
 frontend {
 	nodeVersion = "16.20.2"
-	assembleScript = "npm run webpack"
+	assembleScript = "run build"
 	cleanScript = "run clean"
 	checkScript = "run check"
 }
