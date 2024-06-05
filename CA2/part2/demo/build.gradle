@@ -19,7 +19,7 @@ repositories {
 
 frontend {
 	nodeVersion = "16.20.2"
-	assembleScript = "run build"
+	assembleScript = "npm run build"
 	cleanScript = "run clean"
 	checkScript = "run check"
 }
