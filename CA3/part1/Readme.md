@@ -26,18 +26,23 @@ verify version:
 ```bash
 java -version
 ```
-
-### 4. install gradle version 8.6
-This step may not be needed, since the project already has the gradle wrapper. On my case when I run gradle wrapper, it installed a version 7.2.1, witch didn't work for the project. So I had to install the version 8.6.
+### 4. Build and execute spring boot tutorial basic project.
 ```bash
-wget https://services.gradle.org/distributions/gradle-8.6-bin.zip
-sudo mkdir /opt/gradle
-sudo unzip -d /opt/gradle gradle-8.6-bin.zip
-echo "export GRADLE_HOME=/opt/gradle/gradle-8.6" >> ~/.bashrc
-echo "export PATH=$PATH:$GRADLE_HOME/bin" >> ~/.bashrc
-source ~/.bashrc
-gradle -v
+cd ca1/basic
 ```
+Install Maven
+```bash
+  sudo apt install maven
+```
+
+
+Execute the project
+
+```bash
+  mvn spring-boot:run
+```
+  Open the web browser in:
+  http://192.168.56.5:8080/
 
 ### 5. clone the repository
 create folder and clone project
@@ -49,15 +54,44 @@ git clone https://github.com/WagnerPaivaDev/devops-21-22-JPE-1231863.git
 
 ```
 
-### 6. configure maven wrapper and gradle wrapper
+### 7. Install Gradle
 
-Maven wrapper and Gradle wrapper and must be given permission to execute.
 ```bash
-chmod +x mvnw
-chmod +x gradlew
+sudo apt remove gradle
+wget htpps://services.gradle.org/distributions/gradle-8.6-bin.zip
+sudo mkdir /opt/gradle
+sudo unzip -d /opt/gradle gradle-8.6-bin.zip
 ```
 
-### 7. run the project
+**If unzip function does not work, install it with this commands:**
+
+```bash
+sudo apt update
+sudo apt install unzip
+```
+
+    * Set the environment variables
+```bash
+echo "export GRADLE_HOME=/opt/gradle/gradle-8.6" >> ~/.bashrc
+echo "export PATH=$PATH:$GRADLE_HOME/bin" >> ~/.bashrc
+source ~/.bashrc
+gradle -v
+cd ca2/part1
+```
+    * Run the server inside the VM
+```bash
+gradle runServer
+```
+    * Run the client in the host machine
+
+```bash
+ gradle runClient --args="192.168.56.5 59001"
+```
+    * Execute the client
+
+
+### 8. run the project
+
 #### * 7.1. run CA1 project
 ```bash
 ./mvnw spring-boot:run
